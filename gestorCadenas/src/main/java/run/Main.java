@@ -1,17 +1,27 @@
 package run;
+import java.util.Scanner;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Ingresa una cadena de texto: ");
+        String texto = scanner.nextLine();
+        scanner.close();
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+        Cadena cadena = new Cadena(texto);
+
+        System.out.println("\n🔤 ANÁLISIS DE CADENA");
+        System.out.println("═".repeat(40));
+        System.out.println("Texto original: \"" + cadena.getTexto() + "\"");
+        System.out.println("Mayúsculas: \"" + cadena.convertirAMayusculas() + "\"");
+        System.out.println("Minúsculas: \"" + cadena.convertirAMinusculas() + "\"");
+        System.out.println("Invertida: \"" + cadena.invertir() + "\"");
+        System.out.println("¿Es palíndromo? " + (cadena.esPalindromo() ? "Sí" : "No"));
+
+        int[] vocalesConsonantes = cadena.contarVocalesYConsonantes();
+        System.out.println("Total letras: " + cadena.contarLetras());
+        System.out.println("Vocales: " + vocalesConsonantes[0]);
+        System.out.println("Consonantes: " + vocalesConsonantes[1]);
+        System.out.println("═".repeat(40));
     }
 }

@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f78bee81-24c9-4792-b9d7-f5935a9431ce" name="Changes" comment="" />
+    <list default="true" id="f78bee81-24c9-4792-b9d7-f5935a9431ce" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/run/Cadena.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/run/Cadena.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/run/Main.java" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -30,6 +34,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.Main.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
@@ -60,7 +65,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1757201569176</updated>
-      <workItem from="1757201570587" duration="306000" />
+      <workItem from="1757201570587" duration="997000" />
     </task>
     <servers />
   </component>
