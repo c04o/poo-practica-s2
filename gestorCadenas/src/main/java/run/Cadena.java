@@ -1,5 +1,3 @@
-package run;
-
 public class Cadena {
     private String texto;
 
@@ -17,34 +15,33 @@ public class Cadena {
         this.texto = texto;
     }
 
-    // 1. Convertir a mayúsculas
+    // Convertir a mayúsculas
     public String convertirAMayusculas() {
         return texto.toUpperCase();
     }
 
-    // 2. Convertir a minúsculas
+    // Convertir a minúsculas
     public String convertirAMinusculas() {
         return texto.toLowerCase();
     }
 
-    // 3. Invertir cadena
+    // Invertir cadena
     public String invertir() {
         return new StringBuilder(texto).reverse().toString();
     }
 
-    // 4. Verificar si es palíndromo
+    // Verificar si es palíndromo
     public boolean esPalindromo() {
-        // Eliminar espacios y convertir a minúsculas para mejor comparación
-        String textoLimpio = texto.replaceAll("\\s+", "").toLowerCase();
+        String textoLimpio = texto.replaceAll("[^a-zA-ZáéíóúÁÉÍÓÚñÑ]", "").toLowerCase();
         String invertido = new StringBuilder(textoLimpio).reverse().toString();
         return textoLimpio.equals(invertido);
     }
 
-    // 5. Contar vocales y consonantes
+    // Contar vocales y consonantes
     public int[] contarVocalesYConsonantes() {
         int vocales = 0;
         int consonantes = 0;
-        String textoLimpio = texto.replaceAll("[^a-zA-ZáéíóúÁÉÍÓÚ]", "").toLowerCase();
+        String textoLimpio = texto.replaceAll("[^a-zA-ZáéíóúÁÉÍÓÚñÑ]", "").toLowerCase();
 
         for (int i = 0; i < textoLimpio.length(); i++) {
             char c = textoLimpio.charAt(i);
@@ -59,40 +56,24 @@ public class Cadena {
         return new int[]{vocales, consonantes};
     }
 
-    // Método para mostrar estadísticas (opcional)
-    public void mostrarEstadisticas() {
-        int[] contadores = contarVocalesYConsonantes();
-        System.out.println("Cadena: " + texto);
-        System.out.println("Mayúsculas: " + convertirAMayusculas());
-        System.out.println("Minúsculas: " + convertirAMinusculas());
-        System.out.println("Invertida: " + invertir());
-        System.out.println("¿Es palíndromo? " + (esPalindromo() ? "Sí" : "No"));
-        System.out.println("Vocales: " + contadores[0]);
-        System.out.println("Consonantes: " + contadores[1]);
-        System.out.println("-----------------------------");
+    // Contar total de letras
+    public int contarLetras() {
+        String textoLimpio = texto.replaceAll("[^a-zA-ZáéíóúÁÉÍÓÚñÑ]", "");
+        return textoLimpio.length();
     }
 
-    // Clase principal para probar la funcionalidad
-    public static void main(String[] args) {
-        // Ejemplos de prueba
-        Cadena cadena1 = new Cadena("Anita lava la tina");
-        Cadena cadena2 = new Cadena("Hola Mundo");
-        Cadena cadena3 = new Cadena("Java");
-        Cadena cadena4 = new Cadena("Reconocer");
-
-        // Probar los métodos
-        cadena1.mostrarEstadisticas();
-        cadena2.mostrarEstadisticas();
-        cadena3.mostrarEstadisticas();
-        cadena4.mostrarEstadisticas();
-
-        // Pruebas individuales
-        System.out.println("Pruebas individuales:");
-        System.out.println("'Java' en mayúsculas: " + cadena3.convertirAMayusculas());
-        System.out.println("'Hola Mundo' invertido: " + cadena2.invertir());
-        System.out.println("'Reconocer' es palíndromo: " + cadena4.esPalindromo());
-
-        int[] contadores = cadena2.contarVocalesYConsonantes();
-        System.out.println("'Hola Mundo' - Vocales: " + contadores[0] + ", Consonantes: " + contadores[1]);
+    // Método para mostrar estadísticas
+    public void mostrarEstadisticas() {
+        int[] contadores = contarVocalesYConsonantes();
+        System.out.println("═".repeat(50));
+        System.out.println("Cadena: \"" + texto + "\"");
+        System.out.println("Mayúsculas: \"" + convertirAMayusculas() + "\"");
+        System.out.println("Minúsculas: \"" + convertirAMinusculas() + "\"");
+        System.out.println("Invertida: \"" + invertir() + "\"");
+        System.out.println("¿Es palíndromo? " + (esPalindromo() ? "✅ Sí" : "❌ No"));
+        System.out.println("Total letras: " + contarLetras());
+        System.out.println("Vocales: " + contadores[0]);
+        System.out.println("Consonantes: " + contadores[1]);
+        System.out.println("═".repeat(50));
     }
 }
